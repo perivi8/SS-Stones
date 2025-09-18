@@ -19,11 +19,12 @@ export default defineConfig(({ mode }) => ({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    emptyOutDir: true,
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
           // Keep images in their own directory
-          if (assetInfo.name && /.(jpg|jpeg|png|gif|svg|webp)$/i.test(assetInfo.name)) {
+          if (assetInfo.name && /\.(jpg|jpeg|png|gif|svg|webp)$/i.test(assetInfo.name)) {
             return 'assets/images/[name][extname]';
           }
           // Default asset file name pattern
@@ -32,4 +33,5 @@ export default defineConfig(({ mode }) => ({
       },
     },
   },
+  publicDir: 'public',
 }));

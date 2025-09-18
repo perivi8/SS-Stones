@@ -7,7 +7,7 @@ const ProductsSection = () => {
   const products = [
     {
       title: "Madanpalli White", 
-      image: "/images/4.jpg",
+      image: "/assets/images/4.jpg",
       description: "Elegant white granite with superior finish and durability",
       pricing: {
         small: 65,
@@ -17,7 +17,7 @@ const ProductsSection = () => {
     },
     {
       title: "Kuppum Black",
-      image: "/images/13.jpeg",
+      image: "/assets/images/13.jpeg",
       description: "Premium black granite with exceptional quality and finish",
       pricing: {
         small: 100,
