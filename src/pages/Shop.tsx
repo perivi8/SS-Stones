@@ -349,9 +349,15 @@ const Shop = () => {
                       <Link to={`/product/${product.id}`}>
                         <div className="relative overflow-hidden">
                           <img
-                            src={product.images[0]}
+                            src={product.images[0] || '/placeholder.svg'}
                             alt={product.name}
-                            className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+                            className="h-full w-full object-cover transition-all hover:scale-105"
+                            onError={(e) => {
+                              // Fallback to placeholder if image fails to load
+                              const target = e.target as HTMLImageElement;
+                              target.onerror = null;
+                              target.src = '/placeholder.svg';
+                            }}
                           />
                           <div className="absolute inset-0 bg-gradient-hero opacity-0 group-hover:opacity-60 transition-opacity duration-300" />
                           <div className="absolute top-4 left-4">

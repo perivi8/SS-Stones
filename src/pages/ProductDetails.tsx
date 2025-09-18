@@ -128,11 +128,16 @@ const ProductDetails = () => {
             <div className="grid lg:grid-cols-2 gap-12">
               {/* Product Images */}
               <div className="space-y-4">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg bg-muted">
+                <div className="relative aspect-square overflow-hidden rounded-lg mb-4">
                   <img
-                    src={product.images[currentImageIndex]}
+                    src={product.images[currentImageIndex] || '/placeholder.svg'}
                     alt={product.name}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      const target = e.target as HTMLImageElement;
+                      target.onerror = null;
+                      target.src = '/placeholder.svg';
+                    }}
                   />
                   {product.images.length > 1 && (
                     <>
@@ -158,19 +163,24 @@ const ProductDetails = () => {
                 
                 {/* Thumbnail Images */}
                 {product.images.length > 1 && (
-                  <div className="flex gap-2">
-                    {product.images.map((image, index) => (
+                  <div className="grid grid-cols-4 gap-2 mt-2">
+                    {product.images.map((img, index) => (
                       <button
                         key={index}
                         onClick={() => setCurrentImageIndex(index)}
-                        className={`w-20 h-20 rounded-md overflow-hidden border-2 ${
-                          currentImageIndex === index ? 'border-granite-gold' : 'border-muted'
+                        className={`relative aspect-square overflow-hidden rounded-md border-2 ${
+                          currentImageIndex === index ? 'border-primary' : 'border-transparent'
                         }`}
                       >
                         <img
-                          src={image}
-                          alt={`${product.name} ${index + 1}`}
+                          src={img || '/placeholder.svg'}
+                          alt={`${product.name} - ${index + 1}`}
                           className="w-full h-full object-cover"
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.onerror = null;
+                            target.src = '/placeholder.svg';
+                          }}
                         />
                       </button>
                     ))}
