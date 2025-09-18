@@ -18,10 +18,6 @@
       "dest": "/assets/$1"
     },
     {
-      "src": "/images/(.*)",
-      "dest": "/assets/images/$1"
-    },
-    {
       "src": "/(.*)",
       "dest": "/index.html"
     }

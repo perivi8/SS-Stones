@@ -2,12 +2,14 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
+import Image4 from "@/assets/4.jpg";
+import Image13 from "@/assets/13.jpeg";
 
 const ProductsSection = () => {
   const products = [
     {
       title: "Madanpalli White", 
-      image: "/assets/images/4.jpg",
+      image: Image4,
       description: "Elegant white granite with superior finish and durability",
       pricing: {
         small: 65,
@@ -17,7 +19,7 @@ const ProductsSection = () => {
     },
     {
       title: "Kuppum Black",
-      image: "/assets/images/13.jpeg",
+      image: Image13,
       description: "Premium black granite with exceptional quality and finish",
       pricing: {
         small: 100,
