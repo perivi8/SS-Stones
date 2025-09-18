@@ -15,4 +15,21 @@ export default defineConfig(({ mode }) => ({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  base: "/",
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          // Keep images in their own directory
+          if (assetInfo.name && /.(jpg|jpeg|png|gif|svg|webp)$/i.test(assetInfo.name)) {
+            return 'assets/images/[name][extname]';
+          }
+          // Default asset file name pattern
+          return 'assets/[name]-[hash][extname]';
+        },
+      },
+    },
+  },
 }));

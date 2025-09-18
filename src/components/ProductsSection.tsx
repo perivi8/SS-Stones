@@ -3,15 +3,11 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, DollarSign } from "lucide-react";
 import { Link } from "react-router-dom";
 
-// Import the specific images for each product
-import madanpalliWhiteMain from "@/assets/4.jpg";
-import kuppumBlackMain from "@/assets/13.jpeg";
-
 const ProductsSection = () => {
   const products = [
     {
       title: "Madanpalli White", 
-      image: madanpalliWhiteMain,
+      image: "/images/4.jpg",
       description: "Elegant white granite with superior finish and durability",
       pricing: {
         small: 65,
@@ -21,7 +17,7 @@ const ProductsSection = () => {
     },
     {
       title: "Kuppum Black",
-      image: kuppumBlackMain,
+      image: "/images/13.jpeg",
       description: "Premium black granite with exceptional quality and finish",
       pricing: {
         small: 100,
